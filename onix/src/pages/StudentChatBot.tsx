@@ -359,7 +359,7 @@ const StudentChatBot: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await axios.post('http://localhost:5001/api/requests', {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/requests`, {
         ...requestData,
         birthDate: requestData.birthDate || undefined
       });
@@ -437,7 +437,7 @@ const StudentChatBot: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      await axios.post('http://localhost:5001/api/feedback', feedbackData);
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/feedback`, feedbackData);
       
       setShowFeedbackModal(false);
       setIsTyping(true);

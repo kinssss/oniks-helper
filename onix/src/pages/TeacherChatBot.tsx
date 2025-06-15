@@ -83,7 +83,7 @@ const TeacherChatBot: React.FC = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/content');
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/content`);
         setContent(response.data);
         
         setMessages([
@@ -269,7 +269,7 @@ const sendGuideStep = (stepIndex: number) => {
     setShowTicketForm(false);
     
     try {
-      const response = await axios.post('http://localhost:5001/api/tickets', ticketData);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/tickets`, ticketData);
       
       setMessages(prev => [
         ...prev,

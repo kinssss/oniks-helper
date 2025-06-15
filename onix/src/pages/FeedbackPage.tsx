@@ -33,7 +33,7 @@ const FeedbackPage: React.FC = () => {
   const fetchFeedbacks = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5001/api/feedback');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/feedback`);
       setFeedbacks(response.data.data);
       setError('');
     } catch (err) {
@@ -71,7 +71,7 @@ const FeedbackPage: React.FC = () => {
       
       setFeedbacks(updatedFeedbacks);
       
-      await axios.patch(`http://localhost:5001/api/feedback/${id}`, {
+      await axios.patch(`${import.meta.env.VITE_API_URL}/api/feedback/${id}`, {
         isImportant: !feedbacks.find(f => f._id === id)?.isImportant
       });
     } catch (err) {
@@ -82,7 +82,7 @@ const FeedbackPage: React.FC = () => {
 
   const deleteMessages = async (ids: string[]) => {
     try {
-      await axios.delete('http://localhost:5001/api/feedback', {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/feedback`, {
         data: { ids }
       });
       

@@ -16,7 +16,7 @@ const TicketsPage: React.FC = () => {
   useEffect(() => {
     const fetchTickets = async () => {
       try {
-        const res = await axios.get('http://localhost:5001/api/tickets');
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/tickets`);
         setTickets(res.data);
       } catch (error) {
         console.error('Ошибка при загрузке тикетов:', error);
@@ -27,7 +27,7 @@ const TicketsPage: React.FC = () => {
 
   const updateStatus = async (id: string, newStatus: string) => {
     try {
-      await axios.put(`http://localhost:5001/api/tickets/${id}`, { status: newStatus });
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/tickets/${id}`, { status: newStatus });
       setTickets(
         tickets.map((t) =>
           t._id === id ? { ...t, status: newStatus as any } : t

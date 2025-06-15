@@ -19,7 +19,7 @@ const Login: React.FC = () => {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:5001/api/auth/login', { login, password });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { login, password });
       localStorage.setItem('role', res.data.role);
       window.location.href = `/${res.data.role}-chat-bot`;
     } catch (error) {

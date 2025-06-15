@@ -22,7 +22,7 @@ const RequestsPage: React.FC = () => {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/requests');
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/requests`);
         
         // Проверяем структуру ответа
         if (response.data && response.data.success && Array.isArray(response.data.data)) {

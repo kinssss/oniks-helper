@@ -28,7 +28,7 @@ const UsersPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const api = axios.create({
-    baseURL: 'http://localhost:5001/api',
+    baseURL: `${import.meta.env.VITE_API_URL}/api`,
     headers: {
       'Content-Type': 'application/json',
     },

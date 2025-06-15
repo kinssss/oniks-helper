@@ -42,7 +42,7 @@ const AdminChatContent: React.FC = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/content');
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/content`);
         setContent(response.data);
       } catch (error) {
         console.error('Error loading content:', error);
@@ -55,7 +55,7 @@ const AdminChatContent: React.FC = () => {
 
   const handleSaveContent = async () => {
     try {
-      await axios.post('http://localhost:5001/api/content', {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/content`, {
         initialMessage: content.initialMessage,
         keywordGroups: content.keywordGroups,
         responses: content.responses,
@@ -102,7 +102,7 @@ const AdminChatContent: React.FC = () => {
         );
         if (!stillExists) {
           try {
-            await axios.delete('http://localhost:5001/api/content/delete-image', {
+            await axios.delete(`${import.meta.env.VITE_API_URL}/api/content/delete-image`, {
               data: { imageUrl: oldStep.imageUrl }
             });
           } catch (error) {
@@ -129,7 +129,7 @@ const AdminChatContent: React.FC = () => {
       for (const step of groupToDelete.guide.steps) {
         if (step.imageUrl) {
           try {
-            await axios.delete('http://localhost:5001/api/content/delete-image', {
+            await axios.delete(`${import.meta.env.VITE_API_URL}/api/content/delete-image`, {
               data: { imageUrl: step.imageUrl }
             });
           } catch (error) {
@@ -197,7 +197,7 @@ const AdminChatContent: React.FC = () => {
 
     // Delete image if it exists
     if (removedStep.imageUrl) {
-      axios.delete('http://localhost:5001/api/content/delete-image', {
+      axios.delete(`${import.meta.env.VITE_API_URL}/api/content/delete-image`, {
         data: { imageUrl: removedStep.imageUrl }
       }).catch(error => console.error('Error deleting image:', error));
     }
@@ -217,7 +217,7 @@ const AdminChatContent: React.FC = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:5001/api/content/upload-image',
+        `${import.meta.env.VITE_API_URL}/api/content/upload-image`,
         formData,
         { 
           headers: { 
@@ -270,7 +270,7 @@ const AdminChatContent: React.FC = () => {
     setEditingGroup(updatedGroup);
 
     if (oldImageUrl) {
-      axios.delete('http://localhost:5001/api/content/delete-image', {
+      axios.delete(`${import.meta.env.VITE_API_URL}/api/content/delete-image`, {
         data: { imageUrl: oldImageUrl }
       }).catch(error => console.error('Error deleting image:', error));
     }

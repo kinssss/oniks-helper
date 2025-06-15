@@ -20,7 +20,7 @@ const DashboardPage: React.FC = () => {
   useEffect(() => {
     const fetchTickets = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/tickets');
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/tickets`);
         setTickets(response.data);
         setLoading(false);
       } catch (err) {
@@ -41,7 +41,7 @@ const DashboardPage: React.FC = () => {
 
   const updateTicketStatus = async (id: string, newStatus: 'active' | 'in_progress' | 'pending' | 'completed') => {
     try {
-      await axios.put(`http://localhost:5001/api/tickets/${id}`, 
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/tickets/${id}`, 
         { status: newStatus },
         {
           headers: {
