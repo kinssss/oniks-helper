@@ -1,0 +1,292 @@
+/* Основные стили */
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+/* Стили для анимированных вкладок */
+.tabs-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.tabs {
+  display: flex;
+  position: relative;
+  gap: 1rem;
+}
+
+.tab {
+  position: relative;
+  padding: 0.8rem 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  color: #7f8c8d;
+  transition: color 0.3s ease;
+  outline: none;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+.tab.active {
+  color: #27EF00;
+}
+
+.tab:last-child {
+  margin-right: 0;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #27EF00;
+  border-radius: 3px;
+}
+
+/* Сетка и карточки тикетов */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.single-column-view {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.status-column {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.status-title {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.tickets-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.ticket-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* Стили статусов */
+.ticket-card.active {
+  border-left: 4px solid #4a6cf7;
+}
+
+.ticket-card.in_progress {
+  border-left: 4px solid #f39c12;
+}
+
+.ticket-card.pending {
+  border-left: 4px solid #e74c3c;
+}
+
+.ticket-card.completed {
+  border-left: 4px solid #27EF00;
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ticket-id {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.status-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-badge.active {
+  background: rgba(74, 108, 247, 0.1);
+  color: #4a6cf7;
+}
+
+.status-badge.in_progress {
+  background: rgba(243, 156, 18, 0.1);
+  color: #f39c12;
+}
+
+.status-badge.pending {
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+}
+
+.status-badge.completed {
+  background: rgba(39, 239, 0, 0.1);
+  color: #27EF00;
+}
+
+/* Тело карточки */
+.ticket-body {
+  margin-bottom: 1.5rem;
+}
+
+.ticket-body p {
+  margin: 0.5rem 0;
+  color: #7f8c8d;
+}
+
+.ticket-body strong {
+  color: #2c3e50;
+}
+
+/* Кнопки действий */
+.ticket-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.take-btn {
+  background: rgba(74, 108, 247, 0.1);
+  color: #4a6cf7;
+}
+
+.take-btn:hover {
+  background: rgba(74, 108, 247, 0.2);
+}
+
+.complete-btn {
+  background: rgba(39, 239, 0, 0.1);
+  color: #27EF00;
+}
+
+.complete-btn:hover {
+  background: rgba(39, 239, 0, 0.2);
+}
+
+.postpone-btn {
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+}
+
+.postpone-btn:hover {
+  background: rgba(231, 76, 60, 0.2);
+}
+
+/* Состояния загрузки и ошибки */
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.loading {
+  color: #4a6cf7;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(74, 108, 247, 0.3);
+  border-radius: 50%;
+  border-top-color: #4a6cf7;
+  animation: spin 1s ease-in-out infinite;
+  margin-left: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tabs-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  
+  .tabs {
+    width: max-content;
+  }
+  
+  .tab {
+    padding: 0.8rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .ticket-actions {
+    flex-direction: column;
+  }
+  
+  .action-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+  
+  .status-column {
+    padding: 1rem;
+  }
+  
+  .ticket-card {
+    padding: 1rem;
+  }
+}

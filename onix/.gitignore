@@ -1,0 +1,19 @@
+# Общие исключения
+node_modules/
+.env
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React исключения
+src/.env.local
+src/.env.development.local
+src/.env.test.local
+src/.env.production.local
+src/build/
+
+# Node.js исключения
+backend/.env
+backend/logs/
+backend/uploads/

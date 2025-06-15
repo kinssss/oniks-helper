@@ -1,0 +1,137 @@
+/* TicketsPage.css */
+.tp-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1a202c;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.tp-title {
+  color: #1a202c;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tp-table-container {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  border: 1px solid #e2e8f0;
+}
+
+.tp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.tp-table-header {
+  background-color: #f8fafc;
+}
+
+.tp-th {
+  padding: 0.85rem;
+  text-align: left;
+  font-weight: 600;
+  color: #2d3748;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tp-table-body {
+  background-color: white;
+}
+
+.tp-tr {
+  transition: background-color 0.2s;
+}
+
+.tp-tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.tp-tr:hover {
+  background-color: #f0fff4;
+}
+
+.tp-td {
+  padding: 0.85rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #4a5568;
+}
+
+.tp-td:last-child {
+  border-bottom: none;
+}
+
+.tp-select {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+  color: white;
+  min-width: 120px;
+}
+
+.tp-select:hover {
+  opacity: 0.9;
+}
+
+.tp-option {
+  background-color: white;
+  color: #333;
+}
+
+.tp-empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #718096;
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  border: 1px dashed #e2e8f0;
+}
+
+.tp-error-message {
+  color: #e53e3e;
+  background-color: #fff5f5;
+  padding: 0.85rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #fed7d7;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .tp-container {
+    padding: 1rem;
+  }
+  
+  .tp-th, .tp-td {
+    padding: 0.8rem 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .tp-select {
+    padding: 0.4rem;
+    min-width: 100px;
+    font-size: 0.8rem;
+  }
+  
+  .tp-table-container {
+    padding: 1rem;
+  }
+}

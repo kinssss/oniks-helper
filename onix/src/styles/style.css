@@ -1,0 +1,148 @@
+/* Контейнер */
+.onyx-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  min-height: 100vh;
+  padding: 40px 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Контент */
+.onyx-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  flex-grow: 1;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+/* Логотип */
+.onyx-logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+/* Текст */
+.onyx-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.onyx-subtitle {
+  font-size: 1.3rem;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+  max-width: 500px;
+  line-height: 1.4;
+}
+
+/* Кнопка с зеленым градиентом */
+.onyx-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.onyx-button {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  border: none;
+  padding: 16px 50px;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.onyx-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(46, 204, 113, 0.4);
+}
+
+.onyx-button:active {
+  transform: translateY(0);
+}
+
+/* Подвал */
+.onyx-footer {
+  width: 100%;
+  text-align: center;
+  padding-top: 30px;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  border-top: 1px solid #ecf0f1;
+  padding-top: 20px;
+}
+
+.footer-year {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .onyx-logo {
+    width: 180px;
+  }
+  
+  .onyx-title {
+    font-size: 2rem;
+  }
+  
+  .onyx-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+  
+  .onyx-button {
+    padding: 14px 40px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .onyx-container {
+    padding: 30px 15px;
+  }
+  
+  .onyx-logo {
+    width: 160px;
+    margin-bottom: 20px;
+  }
+  
+  .onyx-title {
+    font-size: 1.8rem;
+  }
+  
+  .onyx-subtitle {
+    font-size: 1rem;
+  }
+  
+  .onyx-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}

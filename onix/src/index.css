@@ -1,0 +1,27 @@
+:root {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: var(--text);
+
+  --primary: #6C5CE7;
+  --primary-dark: #5649C0;
+  --secondary: #00CEFF;
+  --text: #2D3436;
+  --text-light: #636E72;
+  --bg: #F5F6FA;
+  --card-bg: #FFFFFF;
+  --user-message: #E3F2FD;
+  --bot-message: #F0F4FF;
+  --online: #27EF00;
+  --error: #FF7675;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

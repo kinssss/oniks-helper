@@ -1,0 +1,374 @@
+.tcb-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.tcb-main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tcb-messages-container {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tcb-message {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tcb-message-content {
+  padding: 12px 16px;
+  border-radius: 12px;
+  line-height: 1.5;
+  font-size: 15px;
+  word-break: break-word;
+}
+
+.tcb-message-bot {
+  align-self: flex-start;
+}
+
+.tcb-message-bot .tcb-message-content {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0 12px 12px 12px;
+}
+
+.tcb-message-user {
+  align-self: flex-end;
+}
+
+.tcb-message-user .tcb-message-content {
+  background: #10b981;
+  color: white;
+  border-radius: 12px 0 12px 12px;
+}
+
+.tcb-message-system {
+  align-self: center;
+  max-width: 90%;
+  text-align: center;
+}
+
+.tcb-message-system .tcb-message-content {
+  background-color: #f0fdf4;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  font-size: 14px;
+}
+
+.tcb-input-area {
+  padding: 16px;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.tcb-input-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.tcb-message-input {
+  width: 100%;
+  padding: 12px 16px 12px 48px;
+  border: none;
+  border-radius: 24px;
+  font-size: 15px;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.tcb-message-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
+  background: white;
+}
+
+.tcb-input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  pointer-events: none;
+}
+
+.tcb-send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #10b981;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tcb-send-btn:hover {
+  background: #059669;
+  transform: scale(1.05);
+}
+
+.tcb-send-btn:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.tcb-message-buttons-container {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.tcb-message-buttons-container.tcb-user-message {
+  justify-content: flex-end;
+}
+
+.tcb-message-button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid #e2e8f0;
+  background: white;
+}
+
+.tcb-message-button:hover {
+  background: #f3f4f6;
+}
+
+.tcb-message-button-primary {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+.tcb-message-button-primary:hover {
+  background: #059669;
+}
+
+.tcb-typing-indicator {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: white;
+  border-radius: 12px;
+  width: fit-content;
+  border: 1px solid #e2e8f0;
+  font-size: 13px;
+  color: #64748b;
+  gap: 8px;
+}
+
+.tcb-typing-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #10b981;
+  border-radius: 50%;
+  animation: tcbTypingAnimation 1.4s infinite ease-in-out;
+}
+
+.tcb-image-container {
+  margin-top: 12px;
+  max-width: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #e2e8f0;
+}
+
+.tcb-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.2s;
+}
+
+.tcb-image:hover {
+  transform: scale(1.02);
+}
+
+.tcb-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.tcb-modal-content {
+  background-color: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.tcb-form-group {
+  margin-bottom: 16px;
+}
+
+.tcb-form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tcb-form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s;
+  background-color: #f8fafc;
+}
+
+.tcb-form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.tcb-form-input:focus,
+.tcb-form-textarea:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
+  background-color: white;
+}
+
+.tcb-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.tcb-modal-btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.tcb-modal-primary {
+  background: #10b981;
+  color: white;
+  border: none;
+}
+
+.tcb-modal-primary:hover {
+  background: #059669;
+}
+
+.tcb-modal-secondary {
+  background: white;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+}
+
+.tcb-modal-secondary:hover {
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.tcb-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.tcb-enlarged-image {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+.tcb-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: #64748b;
+}
+
+@keyframes tcbTypingAnimation {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-3px); }
+}
+
+@media (max-width: 768px) {
+  .tcb-main-container {
+    border-radius: 0;
+    height: 100vh;
+  }
+  
+  .tcb-message {
+    max-width: 90%;
+  }
+  
+  .tcb-message-input {
+    padding: 12px 16px 12px 40px;
+  }
+  
+  .tcb-input-icon {
+    left: 12px;
+  }
+  
+  .tcb-message-buttons-container {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .tcb-message-button {
+    width: 100%;
+  }
+}
